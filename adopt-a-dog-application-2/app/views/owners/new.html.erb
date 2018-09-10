@@ -1,0 +1,20 @@
+<h1> Owner Registration Page </h1>
+
+<%= form_for(@owner) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
+    <br />
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %><br />
+    <br />
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %><br />
+    <br />
+    <%= f.label :physical_address %>
+    <%= f.text_field :physical_address %><br />
+    <br />
+    <!-- <%= f.label :physical_address %>
+    <%= f.text_field :physical_address %><br />
+    <br /> -->
+    <%= f.submit "Create Owner" %>
+<% end %>

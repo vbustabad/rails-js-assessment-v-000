@@ -1,4 +1,2 @@
-class Shelter < ActiveRecord::Base
-  has_many :dogs
-  has_many :owners, through: :dogs
+class Shelter < ApplicationRecord
 end
