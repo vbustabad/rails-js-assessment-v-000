@@ -14,4 +14,15 @@ class OwnersController < ApplicationController
     end
   end
 
+  def show
+    @owner = Owner.find(owner[:id])
+    redirect_to owner_path(@owner)
+  end
+
+  private
+
+  def owner_params
+    params.require(:owner).permit(:name, :phone_number, :email_address, :physical_address)
+  end
+
 end
