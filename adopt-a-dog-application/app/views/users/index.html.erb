@@ -1,0 +1,8 @@
+<% form_tag(users_path, method: :get) do %>
+  Name <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<% @users.each do |user| %>
+  <%= link_to user.to_s, user_path(user) %>
+<% end %>
