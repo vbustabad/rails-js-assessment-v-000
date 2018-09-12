@@ -20,11 +20,11 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @owner = Owner.find(params[:id])
 
     if current_user.admin
       render :edit
-    elsif current_user == @user
+    elsif current_user.owner == @owner
       render :edit
     else
       redirect_to root_path
@@ -32,11 +32,11 @@ class OwnersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
+    @owner = Owner.find(params[:id])
+    @owner.update(owner_params)
 
-    if @user.save
-      redirect_to user_path(@user)
+    if @owner.save
+      redirect_to owner_path(@owner)
     else
       render :edit
    end
