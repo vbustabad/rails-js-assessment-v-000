@@ -16,16 +16,39 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
 
-    if !current_user.admin
-      if current_user != @user
-        redirect_to root_path
-      end
+    if current_user == @user
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
     end
   end
 
- private
+  def edit
+    @user = User.find(params[:id])
+
+    if current_user.admin
+      render :edit
+    elsif current_user == @user
+      render :edit
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render :edit
+   end
+  end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :password, :admin)
