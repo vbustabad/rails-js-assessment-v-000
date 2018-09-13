@@ -1,0 +1,8 @@
+<% form_tag(shelters_path, method: :get) do %>
+  Name <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<% @shelters.each do |shelter| %>
+  <%= link_to shelter.to_s, shelter_path(shelter) %>
+<% end %>
