@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 2018_09_12_210939) do
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "breed"
     t.text "traits"
     t.integer "weight"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "owners", force: :cascade do |t|
