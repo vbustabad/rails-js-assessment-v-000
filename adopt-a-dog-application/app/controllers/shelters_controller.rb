@@ -50,7 +50,7 @@ class SheltersController < ApplicationController
   end
 
   def require_admin
-    redirect_to controller: 'application', action: 'home' unless user.admin
+    redirect_to controller: 'application', action: 'home' unless current_user.admin
   end
 
 end
