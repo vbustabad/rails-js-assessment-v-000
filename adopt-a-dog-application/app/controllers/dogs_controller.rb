@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  skip_before_action :require_login, only: [:show]
 
   def new
     @dog = Dog.new
@@ -42,7 +43,11 @@ class DogsController < ApplicationController
 
   private
 
-   def dog_params
+  def dog_params
     params.require(:dog).permit(:name, :age, :breed, :traits, :weight)
+  end
+
+  def require_admin
+    redirect_to controller: 'application', action: 'home' unless user.admin
   end
 end

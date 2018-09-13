@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -52,6 +53,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :password, :admin)
+  end
+
+  def require_login
+    redirect_to controller: 'application', action: 'home' unless logged_in?
   end
 
 end

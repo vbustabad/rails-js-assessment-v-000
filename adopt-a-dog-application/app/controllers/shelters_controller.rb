@@ -1,4 +1,5 @@
 class SheltersController < ApplicationController
+  before_action :require_admin
 
   def new
     @shelter = Shelter.new
@@ -46,6 +47,10 @@ class SheltersController < ApplicationController
 
   def shelter_params
     params.require(:shelter).permit(:name, :physical_address)
+  end
+
+  def require_admin
+    redirect_to controller: 'application', action: 'home' unless user.admin
   end
 
 end

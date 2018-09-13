@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+  before_action :require_login, only: [:show, :edit, :update]
 
   def new
     @owner = Owner.new
@@ -46,6 +47,10 @@ class OwnersController < ApplicationController
 
   def owner_params
     params.require(:owner).permit(:name, :phone_number, :email_address, :physical_address)
+  end
+
+  def require_login
+    redirect_to controller: 'application', action: 'home' unless logged_in?
   end
 
 end
