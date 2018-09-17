@@ -16,3 +16,18 @@
     <br />
     <%= f.submit "Submit" %>
 <% end %>
+
+<% if @dog.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@dog.errors.count, "error") %>
+      prohibited this dog from being saved:
+    </h2>
+
+    <ul>
+    <% @dog.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
