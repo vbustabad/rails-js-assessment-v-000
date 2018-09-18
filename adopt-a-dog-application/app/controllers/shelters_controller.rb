@@ -40,7 +40,7 @@ class SheltersController < ApplicationController
       redirect_to shelter_path(@shelter)
     else
       render :edit
-   end
+    end
   end
 
   private

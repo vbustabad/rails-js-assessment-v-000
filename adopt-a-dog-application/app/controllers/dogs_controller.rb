@@ -1,6 +1,14 @@
 class DogsController < ApplicationController
   skip_before_action :require_login, only: [:show]
 
+  def index
+    if params[:shelter_id]
+      @dogs = Shelter.find(params[:shelter_id]).dogs
+    else
+      @dogs = Dog.all
+    end
+  end
+
   def new
     @dog = Dog.new
   end
@@ -38,7 +46,7 @@ class DogsController < ApplicationController
       redirect_to dog_path(@dog)
     else
       render :edit
-   end
+    end
   end
 
   private
