@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  skip_before_action :require_login, only: [:show]
+  skip_before_action :require_admin, only: [:show]
 
   def index
     if params[:shelter_id]
