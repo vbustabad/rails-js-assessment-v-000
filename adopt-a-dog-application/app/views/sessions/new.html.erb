@@ -1,9 +1,9 @@
 <h1> Login Page </h1>
 
-<%= form_for :user, url: '/sessions' do |f| %>
-  Name: <%= f.collection_select :name, User.all, :name, :name %><br />
+<%= form_tag '/sessions' do %>
+  Name: <%= collection_select :user, :name, User.all, :name, :name %><br />
 
-  Password: <%= f.password_field :password %><br />
+  Password: <%= password_field_tag :password %><br />
   <br />
-  <%= f.submit "Log In" %>
+  <%= submit_tag "Log In" %>
 <% end %>

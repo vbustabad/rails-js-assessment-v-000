@@ -16,7 +16,7 @@ class Dog < ApplicationRecord
   end
 
   def self.small_sized_dogs
-     where("weight < 20")
+    where("weight < 20")
   end
 
   def self.medium_sized_dogs
