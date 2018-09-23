@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if current_user == @user
-      redirect_to user_path(@user)
+      render :show
     else
       redirect_to root_path
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :admin)
+    params.require(:user).permit(:name, :email, :password_digest, :admin)
   end
 
   def require_login
