@@ -1,5 +1,6 @@
 class Dog < ApplicationRecord
   belongs_to :owner
+  has_one :adoption
 
   validates :name, presence: true
   validates :age, numericality: { only_integer: true }

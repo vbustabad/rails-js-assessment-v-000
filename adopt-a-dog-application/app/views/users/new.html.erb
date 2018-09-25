@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1> User Registration Page </h1>
 
 <%= render partial: 'users/form', locals: {user: @user} %>

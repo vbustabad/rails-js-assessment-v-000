@@ -55,8 +55,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :admin)
   end
 
-  def require_login
-    redirect_to controller: 'application', action: 'home' unless logged_in?
-  end
-
 end

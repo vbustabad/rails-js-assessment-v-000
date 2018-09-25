@@ -49,8 +49,4 @@ class SheltersController < ApplicationController
     params.require(:shelter).permit(:name, :physical_address)
   end
 
-  def require_admin
-    redirect_to controller: 'application', action: 'home' unless current_user.admin
-  end
-
 end

@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  skip_before_action :require_admin, only: [:show]
+  before_action :require_admin, except: [:show, :index]
 
   def index
     if params[:shelter_id]
@@ -55,7 +55,4 @@ class DogsController < ApplicationController
     params.require(:dog).permit(:name, :age, :breed, :traits, :weight)
   end
 
-  def require_admin
-    redirect_to controller: 'application', action: 'home' unless current_user.admin
-  end
 end

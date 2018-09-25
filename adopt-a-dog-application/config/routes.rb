@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'application#home'
+  resources :adoptions, only: [:create, :index]
   resources :users
   resources :shelters
   resources :shelters, only: [:show] do
