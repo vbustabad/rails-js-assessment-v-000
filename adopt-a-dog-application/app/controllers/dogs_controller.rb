@@ -25,7 +25,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
-    redirect_to dog_path(@dog)
+    render :show
   end
 
   def edit

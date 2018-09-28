@@ -1,5 +1,5 @@
 class Dog < ApplicationRecord
-  belongs_to :owner
+  belongs_to :shelter
   has_one :adoption
 
   validates :name, presence: true

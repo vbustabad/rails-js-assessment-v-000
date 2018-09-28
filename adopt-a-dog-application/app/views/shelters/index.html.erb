@@ -4,5 +4,5 @@
 <% end %>
 
 <% @shelters.each do |shelter| %>
-  <%= link_to shelter.to_s, shelter_path(shelter) %>
+  <%= link_to shelter.name, shelter_path(shelter) %>
 <% end %>

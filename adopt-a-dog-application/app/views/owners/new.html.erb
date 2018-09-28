@@ -1,6 +1,6 @@
-<!-- <% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %> -->
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 <h1> Owner Registration Page </h1>
 

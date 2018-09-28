@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:show, :edit, :update]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -46,7 +50,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       render :edit
-   end
+    end
   end
 
   private

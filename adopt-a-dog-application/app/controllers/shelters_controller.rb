@@ -1,6 +1,10 @@
 class SheltersController < ApplicationController
   before_action :require_admin
 
+  def index
+    @shelters = Shelter.all
+  end
+
   def new
     @shelter = Shelter.new
   end
@@ -17,7 +21,7 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
-    redirect_to shelter_path(@shelter)
+    render :show
   end
 
   def edit
