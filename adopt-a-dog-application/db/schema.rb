@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_223750) do
+ActiveRecord::Schema.define(version: 2018_09_30_220402) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer "owner_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_223750) do
     t.text "traits"
     t.integer "weight"
     t.integer "shelter_id"
+    t.boolean "adopted", default: false, null: false
     t.index ["shelter_id"], name: "index_dogs_on_shelter_id"
   end
 
@@ -40,6 +41,8 @@ ActiveRecord::Schema.define(version: 2018_09_27_223750) do
     t.string "physical_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_owners_on_user_id"
   end
 
   create_table "shelters", force: :cascade do |t|

@@ -10,7 +10,7 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.new(owner_params)
+    @owner = Owner.new(owner_params.merge(user: current_user))
 
     if @owner.save
       redirect_to owner_path(@owner)
@@ -20,8 +20,7 @@ class OwnersController < ApplicationController
   end
 
   def show
-    @owner = Owner.find(owner[:id])
-    redirect_to owner_path(@owner)
+    @owner = Owner.find(params[:id])
   end
 
   def edit

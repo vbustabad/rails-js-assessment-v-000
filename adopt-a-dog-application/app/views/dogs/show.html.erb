@@ -5,6 +5,7 @@
 <p>Breed: <%= @dog.breed %></p>
 <p>Traits/Unique Characteristics: <%= @dog.traits %></p>
 <p>Weight: <%= @dog.weight %></p>
+<p>Adopted Status: <%= @dog.adopted ? "Adopted" : "Available for adoption" %></p>
 
 <% if @dog.name == "Max" %>
   <%= image_tag("dogs/max-picture.jpg") %>
@@ -28,13 +29,10 @@
 
 <br></br>
 
-<%= link_to 'Adopt Dog', controller: "adoptions", action: "create", id: @dog %>
-<!-- adoptions_path(dog: @dog, owner: current_user.owner), method: :post %> -->
-
-<% if current_user.admin %>
-  <%= link_to 'Edit Dog', edit_dog_path(@dog), data: { confirm: 'Are you sure?' } %>
+<% if !@dog.adopted %>
+  <%= link_to 'Adopt Dog', adoptions_path(dog: @dog, owner: current_user.owner), method: :post %>
 <% end %>
 
 <% if current_user.admin %>
-  <%= link_to 'Delete Dog', dog_path(@dog), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit Dog', edit_dog_path(@dog), data: { confirm: 'Are you sure?' } %>
 <% end %>

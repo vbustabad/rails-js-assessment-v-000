@@ -3,9 +3,9 @@ class DogsController < ApplicationController
 
   def index
     if params[:shelter_id]
-      @dogs = Shelter.find(params[:shelter_id]).dogs
+      @dogs = Shelter.find(params[:shelter_id]).dogs.where(adopted: false)
     else
-      @dogs = Dog.all
+      @dogs = Dog.non_adopted
     end
   end
 
@@ -49,16 +49,10 @@ class DogsController < ApplicationController
     end
   end
 
-  def destroy
-    @dog = Dog.find(params[:id])
-    @dog.destroy
-    redirect_to dogs_path
-  end
-
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :traits, :weight, :shelter)
+    params.require(:dog).permit(:name, :age, :breed, :traits, :weight, :shelter_id)
   end
 
 end

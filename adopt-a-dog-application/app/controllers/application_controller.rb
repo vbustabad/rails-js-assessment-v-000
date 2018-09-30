@@ -25,4 +25,11 @@ class ApplicationController < ActionController::Base
       redirect_to controller: 'application', action: 'home' unless logged_in?
     end
 
+    def require_owner
+      unless current_user.owner
+        flash[:alert] = "Owner registration is required. Please register as an owner in order to adopt a dog."
+        redirect_to new_owner_path
+      end
+    end
+
 end

@@ -8,6 +8,14 @@ class Dog < ApplicationRecord
   validates :traits, presence: true
   validates :weight, numericality: { only_integer: true }
 
+  def self.adopted
+    where(adopted: true)
+  end
+
+  def self.non_adopted
+    where(adopted: false)
+  end
+
   def self.names_in_alphabetical_order
     self.all.order(name: :asc)
   end

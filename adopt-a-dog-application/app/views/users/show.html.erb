@@ -1,8 +1,10 @@
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
 <h1> User Information </h1>
 
 <p><%= @user.name %></p>
 <p>Admin: <%= @user.admin %></p>
+
+<% if @user.has_dog? %>
+  <p>User Adoptions:</p>
+  <%= @user.dog.name %> - <%= link_to "Show #{@user.dog.name}", dog_path(@user.dog) %></li>
+<% end %>
+<br>

@@ -15,7 +15,7 @@
     <%= f.text_field :weight %><br />
     <br />
     <%= f.label :shelter %>
-    <%= f.collection_select :shelter, Shelter.all, :id, :name %><br />
+    <%= f.collection_select :shelter_id, Shelter.all, :id, :name %><br />
     <br />
     <%= f.submit "Submit" %>
 <% end %>
