@@ -26,4 +26,15 @@
   <%= image_tag("dogs/duke-picture.jpg") %>
 <% end %>
 
-<%= link_to 'Adopt Dog', adoptions_path, method: :post %>
+<br></br>
+
+<%= link_to 'Adopt Dog', controller: "adoptions", action: "create", id: @dog %>
+<!-- adoptions_path(dog: @dog, owner: current_user.owner), method: :post %> -->
+
+<% if current_user.admin %>
+  <%= link_to 'Edit Dog', edit_dog_path(@dog), data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% if current_user.admin %>
+  <%= link_to 'Delete Dog', dog_path(@dog), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

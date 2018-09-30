@@ -1,19 +1,15 @@
 class AdoptionsController < ApplicationController
+  before_action :require_admin
 
   def index
     @adoptions = Adoption.all
   end
 
-  def remove
-    @dog = Dog.find(params[:id])
-    remove_instance_variable(:@dog)
-  end
-
   def create
-    @adoption = Adoption.new(dog: Dog.find(params[:id]), owner: current_user.owner)
+    @adoption = Adoption.new(dog: @dog, owner: current_user.owner)
 
     if @adoption.save
-      Dog.remove(@dog)
+      Adoption.all.delete(@dog)
       flash[:notice] = "Dog has been successfully adopted."
       redirect_to user_path(current_user)
     else
