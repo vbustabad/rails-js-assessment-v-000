@@ -36,3 +36,7 @@
 <% if current_user.admin %>
   <%= link_to 'Edit Dog', edit_dog_path(@dog), data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+<!-- <% if current_user.admin %>
+  <%= link_to 'Delete Dog', dog_path(@dog), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> -->
