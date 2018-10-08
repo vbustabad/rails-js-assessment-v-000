@@ -1,0 +1,10 @@
+<h1>List of Comments</h1>
+
+<% unless @comments.empty? %>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><%= comment.feedback %><%= link_to "Show Comment", comment_path(comment) %></li>
+      <% end %>
+  </ul>
+<% end %>
+<br>
