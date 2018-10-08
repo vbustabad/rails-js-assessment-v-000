@@ -7,14 +7,15 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    @adoption = Adoption.find(params[:id])
+    @comment = @adoption.comments.build
   end
 
   def create
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to comment_path(@comment)
+      redirect_to adoption_comment_path(@comment)
     else
       render :new
     end
@@ -26,22 +27,14 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-
-    if current_user.admin
-      render :edit
-    elsif current_user.owner == @owner
-      render :edit
-    else
-      redirect_to root_path
-    end
   end
 
   def update
-    @owner = Owner.find(params[:id])
-    @owner.update(owner_params)
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
 
-    if @owner.save
-      redirect_to owner_path(@owner)
+    if @comment.save
+      redirect_to adoption_comment_path(@comment)
     else
       render :edit
     end

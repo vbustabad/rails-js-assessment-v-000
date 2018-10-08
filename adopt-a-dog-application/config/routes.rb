@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'application#home'
-  resources :adoptions, only: [:create, :index] do
+  resources :adoptions, only: [:create, :index, :show] do
     resources :comments
   end
   resources :users
@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :shelters, only: [:show] do
     resources :dogs, only: [:show, :index]
   end
-  resources :owners
+  resources :owners do
+    resources :adoptions, only: [:show]
+  end
   resources :dogs
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'

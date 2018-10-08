@@ -5,9 +5,10 @@
 
 <% if @user.has_dog? %>
   <p>User Adoptions:</p>
-  <%= @user.dog.name %> - <%= link_to "Show #{@user.dog.name}", dog_path(@user.dog) %></li>
+  <%= @user.dog.name %> - <%= link_to "Show #{@user.dog.name}", dog_path(@user.dog) %>
 <% end %>
-<br></br>
 
 <br></br>
+<br></br>
+
 <%= link_to 'View Dogs', dogs_path %>
