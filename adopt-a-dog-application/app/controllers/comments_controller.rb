@@ -3,44 +3,49 @@ class CommentsController < ApplicationController
   before_action :require_admin, only: [:index]
 
   def index
+    @adoption = Adoption.find(params[:adoption_id])
     @comments = Comment.all
   end
 
   def new
-    @adoption = Adoption.find(params[:id])
-    @comment = @adoption.comments.build
+    @adoption = Adoption.find(params[:adoption_id])
+    @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to adoption_comment_path(@comment)
+      redirect_to adoption_comment_path(@adoption, @comment)
     else
       render :new
     end
   end
 
   def show
+    @adoption = Adoption.find(params[:adoption_id])
     @comment = Comment.find(params[:id])
   end
 
   def edit
+    @adoption = Adoption.find(params[:adoption_id])
     @comment = Comment.find(params[:id])
   end
 
   def update
+    @adoption = Adoption.find(params[:adoption_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
 
     if @comment.save
-      redirect_to adoption_comment_path(@comment)
+      redirect_to adoption_comment_path(@adoption, @comment)
     else
       render :edit
     end
   end
 
   def destroy
+    @adoption = Adoption.find(params[:adoption_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
   end
@@ -48,7 +53,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:feedback)
+    params.permit(:feedback)
   end
 
 end

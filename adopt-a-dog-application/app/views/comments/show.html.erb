@@ -1,3 +1,6 @@
 <h1> Comment Information </h1>
 
-<p><%= @comment.feedback %></p>
+<p>Feedback: <%= @comment.feedback %></p>
+
+<p><%= link_to "Edit Comment", adoption_comment_path(@adoption, @comment), method: :patch, data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to "Delete Comment", adoption_comment_path(@adoption, @comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
