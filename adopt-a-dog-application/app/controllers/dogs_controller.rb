@@ -9,7 +9,7 @@ class DogsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {render :index}
+      format.html {render :index} and return
       format.json {render json: @dogs}
     end
   end
@@ -33,7 +33,7 @@ class DogsController < ApplicationController
     render :show
 
     respond_to do |format|
-      format.html {render :show}
+      format.html {render :show} and return
       format.json {render json: @dog}
     end
   end
