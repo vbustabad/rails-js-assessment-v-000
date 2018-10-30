@@ -7,6 +7,11 @@ class DogsController < ApplicationController
     else
       @dogs = Dog.non_adopted
     end
+
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @dogs}
+    end
   end
 
   def new
