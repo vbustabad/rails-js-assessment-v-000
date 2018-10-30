@@ -7,6 +7,8 @@
 <p>Weight: <%= @dog.weight %></p>
 <p>Adopted Status: <%= @dog.adopted ? "Adopted" : "Available for adoption" %></p>
 
+<p><%= link_to "Description", id="detailed-description" %></p>
+
 <% if @dog.name == "Max" %>
   <%= image_tag("dogs/max-picture.jpg") %>
 <% end %>
