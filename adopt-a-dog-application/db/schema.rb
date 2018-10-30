@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_10_15_004800) do
 
-  create_table "adoption_comments", force: :cascade do |t|
-    t.integer "adoption_id"
-    t.integer "comment_id"
-    t.index ["adoption_id"], name: "index_adoption_comments_on_adoption_id"
-    t.index ["comment_id"], name: "index_adoption_comments_on_comment_id"
-  end
-
   create_table "adoptions", force: :cascade do |t|
     t.integer "owner_id"
     t.integer "dog_id"
