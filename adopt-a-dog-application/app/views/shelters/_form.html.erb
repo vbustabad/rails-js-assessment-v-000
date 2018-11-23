@@ -1,11 +1,11 @@
 <%= form_for(@shelter) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br />
-    <br />
-    <%= f.label :physical_address %>
-    <%= f.password_field :physical_address %><br />
-    <br />
-    <%= f.submit "Submit" %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+  <br />
+  <%= f.label :physical_address %>
+  <%= f.password_field :physical_address %><br />
+  <br />
+  <%= f.submit "Submit" %>
 <% end %>
 
 <% if @shelter.errors.any? %>
