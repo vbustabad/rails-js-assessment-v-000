@@ -9,15 +9,14 @@ class CommentsController < ApplicationController
 
   def new
     @adoption = Adoption.find(params[:adoption_id])
-    @comment = Comment.new
+    @comment = @adoption.comments.build
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @adoption = Adoption.find(params[:adoption_id])
+    @comment = @adoption.comments.build(comment_params)
 
-    if @comment.save
-      redirect_to adoption_comment_path(@adoption, @comment)
-    else
+    unless @comment.save
       render :new
     end
   end
@@ -38,7 +37,7 @@ class CommentsController < ApplicationController
     @comment.update(comment_params)
 
     if @comment.save
-      redirect_to adoption_comment_path(@adoption, @comment)
+      redirect_to adoption_comment_path(params[:adoption_id], @comment)
     else
       render :edit
     end
@@ -53,7 +52,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:feedback)
+    params.require(:comment).permit(:feedback)
   end
 
 end
