@@ -1,23 +1,23 @@
 <%= form_for(@dog) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br />
-    <br />
-    <%= f.label :age %>
-    <%= f.text_field :age %><br />
-    <br />
-    <%= f.label :breed %>
-    <%= f.text_field :breed %><br />
-    <br />
-    <%= f.label :traits %>
-    <%= f.text_field :traits %><br />
-    <br />
-    <%= f.label :weight %>
-    <%= f.text_field :weight %><br />
-    <br />
-    <%= f.label :shelter %>
-    <%= f.collection_select :shelter_id, Shelter.all, :id, :name %><br />
-    <br />
-    <%= f.submit "Submit" %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+  <br />
+  <%= f.label :age %>
+  <%= f.text_field :age %><br />
+  <br />
+  <%= f.label :breed %>
+  <%= f.text_field :breed %><br />
+  <br />
+  <%= f.label :traits %>
+  <%= f.text_field :traits %><br />
+  <br />
+  <%= f.label :weight %>
+  <%= f.text_field :weight %><br />
+  <br />
+  <%= f.label :shelter %>
+  <%= f.collection_select :shelter_id, Shelter.all, :id, :name %><br />
+  <br />
+  <%= f.submit "Submit" %>
 <% end %>
 
 <% if @dog.errors.any? %>
