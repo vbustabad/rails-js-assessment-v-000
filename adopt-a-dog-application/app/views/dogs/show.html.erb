@@ -2,12 +2,16 @@
 
 <p><%= @dog.name %></p>
 <p>Age: <%= @dog.age %></p>
-<p>Breed: <%= @dog.breed %></p>
+<p>Breed: <span id="dog-breed" data-breed="<%= @dog.breed %>"><%= @dog.breed %></span></p>
 <p>Traits/Unique Characteristics: <%= @dog.traits %></p>
 <p>Weight: <%= @dog.weight %></p>
 <p>Adopted Status: <%= @dog.adopted ? "Adopted" : "Available for adoption" %></p>
 
-<p><%= link_to "Description", id="detailed-description" %></p>
+<a href="#" id="detailed-description">Breed Description</a><br></br>
+
+<div id="dog-description"></div><br />
+
+<a href="#" id="wikipedia-link"></a><br></br>
 
 <% if @dog.name == "Max" %>
   <%= image_tag("dogs/max-picture.jpg") %>
