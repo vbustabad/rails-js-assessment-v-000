@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_004800) do
+ActiveRecord::Schema.define(version: 2018_11_20_003528) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer "owner_id"
@@ -21,17 +21,12 @@ ActiveRecord::Schema.define(version: 2018_10_15_004800) do
     t.index ["owner_id"], name: "index_adoptions_on_owner_id"
   end
 
-  create_table "adoptions_comments", force: :cascade do |t|
-    t.integer "adoption_id"
-    t.integer "comment_id"
-    t.index ["adoption_id"], name: "index_adoptions_comments_on_adoption_id"
-    t.index ["comment_id"], name: "index_adoptions_comments_on_comment_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "feedback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "adoption_id"
+    t.index ["adoption_id"], name: "index_comments_on_adoption_id"
   end
 
   create_table "dogs", force: :cascade do |t|
