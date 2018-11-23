@@ -3,6 +3,11 @@ class OwnersController < ApplicationController
 
   def index
     @owners = Owner.all
+
+    respond_to do |format|
+      format.html {render :index} and return
+      format.json {render json: @owners}
+    end
   end
 
   def new
