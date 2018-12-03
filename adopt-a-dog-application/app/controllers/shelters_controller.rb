@@ -21,7 +21,11 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
-    render :show
+
+    respond_to do |format|
+      format.html {render :show} and return
+      format.json {render json: @shelter}
+    end
   end
 
   def edit
