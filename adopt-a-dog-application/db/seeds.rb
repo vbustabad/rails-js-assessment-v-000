@@ -12,11 +12,11 @@ owner_2 = Owner.create(name: "Priscilla Li", phone_number: 4444444444, email_add
 shelter_1 = Shelter.create(name: "New England Animal Shelter", physical_address: "333 Pennsylvania Lane, Boston, Massachusetts 99999")
 shelter_2 = Shelter.create(name: "Northeastern Animal Shelter", physical_address: "444 Belvedere Street, Providence, Rhode Island 55555")
 
-Dog.create(name: "Max", age: 4, breed: "Schnauzer", traits: "intelligent", weight: 16, shelter: shelter_1)
-Dog.create(name: "Mickey", age: 8, breed: "Cocker Spaniel", traits: "trustworthy", weight: 30, shelter: shelter_1)
-Dog.create(name: "Bella", age: 2, breed: "Labrador Retriever", traits: "sociable", weight: 60, shelter: shelter_1)
-Dog.create(name: "Sophie", age: 5, breed: "Beagle", traits: "playful", weight: 21, shelter: shelter_1)
-Dog.create(name: "Duke", age: 3, breed: "Maltese", traits: "affectionate", weight: 8, shelter: shelter_1)
+Dog.create(name: "Max", age: 4, breed: "Schnauzer", gender: "Male", weight: 16, shelter: shelter_1)
+Dog.create(name: "Mickey", age: 8, breed: "Cocker Spaniel", gender: "Male", weight: 30, shelter: shelter_1)
+Dog.create(name: "Bella", age: 2, breed: "Labrador Retriever", gender: "Female", weight: 60, shelter: shelter_1)
+Dog.create(name: "Sophie", age: 5, breed: "Beagle", gender: "Female", weight: 21, shelter: shelter_1)
+Dog.create(name: "Duke", age: 3, breed: "Maltese", gender: "Male", weight: 8, shelter: shelter_1)
 
 User.create(name: "Mary Zimmer", email: "maryzimmer@gmail.com", password: "ilovedogs", admin: false)
 User.create(name: "John Smith", email: "johnsmith@gmail.com", password: "dogsarethebest", admin: false)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_003528) do
+ActiveRecord::Schema.define(version: 2018_12_20_030742) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer "owner_id"
@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2018_11_20_003528) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "breed"
-    t.text "traits"
     t.integer "weight"
     t.integer "shelter_id"
     t.boolean "adopted", default: false, null: false
+    t.string "gender"
     t.index ["shelter_id"], name: "index_dogs_on_shelter_id"
   end
 

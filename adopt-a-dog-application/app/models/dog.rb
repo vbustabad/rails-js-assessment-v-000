@@ -5,7 +5,7 @@ class Dog < ApplicationRecord
   validates :name, presence: true
   validates :age, numericality: { only_integer: true }
   validates :breed, presence: true
-  validates :traits, presence: true
+  validates :gender, presence: true
   validates :weight, numericality: { only_integer: true }
 
   def self.adopted
