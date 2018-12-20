@@ -7,7 +7,7 @@ $('.shelters.show').ready(function(){
   function addDogsToDOM(data) {
     const dogsList = document.getElementById('list-of-dogs');
     const dogsSortedAlphabeticallyByName = data.dogs.sort((a, b) => a.name.localeCompare(b.name));
-    const dogsAvailableForAdoptionAtShelter = dogsSortedAlphabeticallyByName.filter(dog => dog.adopted === false); 
+    const dogsAvailableForAdoptionAtShelter = data.dogs.filter(dog => dog.adopted === false); 
 
     dogsAvailableForAdoptionAtShelter.forEach(function(dog) {
       const listItem = document.createElement('li');
